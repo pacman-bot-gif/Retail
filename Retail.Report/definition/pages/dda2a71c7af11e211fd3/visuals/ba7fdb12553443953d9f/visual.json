@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "c024855d0ec8b5d8b7fb",
+  "name": "ba7fdb12553443953d9f",
   "position": {
-    "x": 1176,
-    "y": 289,
-    "z": 7000,
-    "height": 778,
-    "width": 384,
-    "tabOrder": 7000
+    "x": 773.25227963525833,
+    "y": 252.40121580547111,
+    "z": 3000,
+    "height": 357.44680851063828,
+    "width": 385.16717325227961,
+    "tabOrder": 3000
   },
   "visual": {
-    "visualType": "donutChart",
+    "visualType": "pieChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Buy"
+                      "Entity": "Stock"
                     }
                   },
-                  "Property": "สถานะ PO"
+                  "Property": "สถานะสินค้า"
                 }
               },
-              "queryRef": "Buy.สถานะ PO",
-              "nativeQueryRef": "สถานะ PO",
+              "queryRef": "Stock.สถานะสินค้า",
+              "nativeQueryRef": "สถานะสินค้า",
               "active": true
             }
           ]
@@ -41,16 +41,16 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Buy"
+                          "Entity": "Stock"
                         }
                       },
-                      "Property": "เลขที่ PO"
+                      "Property": "จำนวน"
                     }
                   },
-                  "Function": 2
+                  "Function": 0
                 }
               },
-              "queryRef": "CountNonNull(Buy.เลขที่ PO)",
+              "queryRef": "Sum(Stock.จำนวน)",
               "nativeQueryRef": "จำนวน",
               "displayName": "จำนวน"
             }
@@ -66,13 +66,13 @@
                   "Column": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "Buy"
+                        "Entity": "Stock"
                       }
                     },
-                    "Property": "เลขที่ PO"
+                    "Property": "จำนวน"
                   }
                 },
-                "Function": 2
+                "Function": 0
               }
             },
             "direction": "Descending"
@@ -82,72 +82,6 @@
       }
     },
     "objects": {
-      "labels": [
-        {
-          "properties": {
-            "position": {
-              "expr": {
-                "Literal": {
-                  "Value": "'outside'"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "15D"
-                }
-              }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        },
-        {
-          "properties": {
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ]
-          }
-        }
-      ],
       "legend": [
         {
           "properties": {
@@ -157,84 +91,11 @@
                   "Value": "true"
                 }
               }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
-                }
-              }
-            },
-            "labelColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
             }
           }
         }
       ],
-      "centerValue": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "value": [
-        {
-          "properties": {
-            "labelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "1L"
-                }
-              }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "label": [
+      "labels": [
         {
           "properties": {
             "show": {
@@ -272,57 +133,15 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Buy"
+                            "Entity": "Stock"
                           }
                         },
-                        "Property": "สถานะ PO"
+                        "Property": "สถานะสินค้า"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'เสร็จสิ้น'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 8,
-                      "Percent": 0.4
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Buy"
-                          }
-                        },
-                        "Property": "สถานะ PO"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'กำลังดำเนินการ'"
+                        "Value": "'Normal'"
                       }
                     }
                   }
@@ -356,15 +175,99 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Buy"
+                            "Entity": "Stock"
                           }
                         },
-                        "Property": "สถานะ PO"
+                        "Property": "สถานะสินค้า"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'เกินกำหนด'"
+                        "Value": "'Dead Stock'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": 0.4
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Stock"
+                          }
+                        },
+                        "Property": "สถานะสินค้า"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Slow-moving'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Stock"
+                          }
+                        },
+                        "Property": "สถานะสินค้า"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Unknown'"
                       }
                     }
                   }
@@ -389,26 +292,13 @@
           }
         }
       ],
-      "visualTooltip": [
+      "background": [
         {
           "properties": {
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "visualHeader": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }
@@ -427,21 +317,45 @@
             }
           }
         }
-      ],
-      "background": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e411587303f6104589e5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Stock"
+              }
+            },
+            "Property": "สถานะสินค้า"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1bb0512b3d6cab02f99e",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stock"
+                  }
+                },
+                "Property": "จำนวน"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

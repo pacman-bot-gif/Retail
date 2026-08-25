@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "295ec3e9eedaf291a77a",
+  "name": "22b081c0a3ef3ed1dea7",
   "position": {
-    "x": 1185,
-    "y": 292.5,
-    "z": 8000,
-    "height": 776.25,
-    "width": 735,
-    "tabOrder": 8000
+    "x": 401.21580547112461,
+    "y": 252.40121580547111,
+    "z": 5000,
+    "height": 357.44680851063828,
+    "width": 385.16717325227961,
+    "tabOrder": 5000
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "pieChart",
     "query": {
       "queryState": {
         "Category": {
@@ -23,30 +23,12 @@
                       "Entity": "Stock"
                     }
                   },
-                  "Property": "ชื่อสินค้า"
+                  "Property": "หมวดสินค้า"
                 }
               },
-              "queryRef": "Stock.ชื่อสินค้า",
-              "nativeQueryRef": "ชื่อสินค้า",
+              "queryRef": "Stock.หมวดสินค้า",
+              "nativeQueryRef": "หมวดสินค้า",
               "active": true
-            }
-          ]
-        },
-        "Series": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Stock"
-                    }
-                  },
-                  "Property": "สถานะสินค้า"
-                }
-              },
-              "queryRef": "Stock.สถานะสินค้า",
-              "nativeQueryRef": "สถานะสินค้า"
             }
           ]
         },
@@ -102,42 +84,18 @@
     "objects": {
       "legend": [
         {
-          "properties": {}
-        }
-      ],
-      "labels": [
-        {
           "properties": {
-            "enableValueDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
             "show": {
               "expr": {
                 "Literal": {
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
             }
           }
         }
       ],
-      "zoom": [
+      "labels": [
         {
           "properties": {
             "show": {
@@ -151,6 +109,47 @@
         }
       ],
       "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#68F968'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Stock"
+                          }
+                        },
+                        "Property": "สถานะสินค้า"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Normal'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
         {
           "properties": {
             "fill": {
@@ -283,8 +282,54 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#68F968'"
+                    "FillRule": {
+                      "Input": {
+                        "Aggregation": {
+                          "Expression": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "Stock"
+                                }
+                              },
+                              "Property": "จำนวน"
+                            }
+                          },
+                          "Function": 0
+                        }
+                      },
+                      "FillRule": {
+                        "linearGradient3": {
+                          "min": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#a0d1ff'"
+                              }
+                            }
+                          },
+                          "mid": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#41a4ff'"
+                              }
+                            }
+                          },
+                          "max": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#094780'"
+                              }
+                            }
+                          },
+                          "nullColoringStrategy": {
+                            "strategy": {
+                              "Literal": {
+                                "Value": "'asZero'"
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -294,112 +339,16 @@
           "selector": {
             "data": [
               {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Stock"
-                          }
-                        },
-                        "Property": "สถานะสินค้า"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Normal'"
-                      }
-                    }
-                  }
-                }
+                "roles": [
+                  "Category"
+                ]
               }
             ]
-          }
-        }
-      ],
-      "valueAxis": [
-        {
-          "properties": {
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "gridlineShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "ribbonBands": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "totals": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
           }
         }
       ]
     },
     "visualContainerObjects": {
-      "visualHeader": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "visualTooltip": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
       "title": [
         {
           "properties": {
@@ -407,19 +356,6 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "stylePreset": [
-        {
-          "properties": {
-            "name": {
-              "expr": {
-                "Literal": {
-                  "Value": "''"
                 }
               }
             }
@@ -458,7 +394,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "921c3d00b02ab2b8a7dc",
+        "name": "c8a2eb2056baf0cdd4c6",
         "field": {
           "Column": {
             "Expression": {
@@ -466,43 +402,56 @@
                 "Entity": "Stock"
               }
             },
-            "Property": "ชื่อสินค้า"
+            "Property": "หมวดสินค้า"
           }
         },
-        "type": "Categorical"
-      },
-      {
-        "name": "40c2b57124132febb44d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Stock"
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "s",
+              "Entity": "Stock",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "s"
+                          }
+                        },
+                        "Property": "หมวดสินค้า"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'[001] สินค้า Cutting Tool'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'[003] สินค้า - Factory Supply'"
+                        }
+                      }
+                    ]
+                  ]
+                }
               }
-            },
-            "Property": "สถานะสินค้า"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "8d0d0525658d7bbcedf4",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Stock"
-                  }
-                },
-                "Property": "จำนวน"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
+            }
+          ]
+        }
       }
     ]
   }

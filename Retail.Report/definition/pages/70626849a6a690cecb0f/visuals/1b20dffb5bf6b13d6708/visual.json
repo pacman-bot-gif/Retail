@@ -102,7 +102,8 @@
                 }
               },
               "queryRef": "Sum(Buy.จำนวนที่สั่ง)",
-              "nativeQueryRef": "Sum of จำนวนที่สั่ง"
+              "nativeQueryRef": "จำนวนที่สั่ง",
+              "displayName": "จำนวนที่สั่ง"
             },
             {
               "field": {
@@ -156,5 +157,117 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c9cf31458e1baca935a2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Buy"
+              }
+            },
+            "Property": "เลขที่ PO"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "717601d6b7cfe0e0af23",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Buy"
+              }
+            },
+            "Property": "กำหนดส่งมอบ"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8089b41335cea0e1a78e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Buy"
+              }
+            },
+            "Property": "ชื่อซัพพลายเออร์"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "70fe29b3a292a00de412",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Buy"
+              }
+            },
+            "Property": "ชื่อสินค้า"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6179426ea1a49d0bfef9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Buy"
+              }
+            },
+            "Property": "คลังที่รับเข้า"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6a2145e58d419b1cd11c",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Buy"
+                  }
+                },
+                "Property": "จำนวนที่สั่ง"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fe70d2796c44e265c42c",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Buy"
+                  }
+                },
+                "Property": "จำนวนค้างรับ"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "277f475ceb31fee3c654",
+  "name": "f7f0c7776d5cecc87223",
   "position": {
-    "x": 406,
-    "y": 288,
-    "z": 6000,
-    "height": 362,
-    "width": 758,
-    "tabOrder": 6000
+    "x": 402.67477203647417,
+    "y": 665.28875379939211,
+    "z": 2000,
+    "height": 414.3465045592705,
+    "width": 765.95744680851067,
+    "tabOrder": 2000
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "barChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Buy"
+                      "Entity": "Stock"
                     }
                   },
-                  "Property": "ชื่อซัพพลายเออร์"
+                  "Property": "คลัง"
                 }
               },
-              "queryRef": "Buy.ชื่อซัพพลายเออร์",
-              "nativeQueryRef": "ชื่อซัพพลายเออร์",
+              "queryRef": "Stock.คลัง",
+              "nativeQueryRef": "คลัง",
               "active": true
             }
           ]
@@ -41,18 +41,18 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Buy"
+                          "Entity": "Stock"
                         }
                       },
-                      "Property": "จำนวนค้างรับ"
+                      "Property": "จำนวน"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(Buy.จำนวนค้างรับ)",
-              "nativeQueryRef": "จำนวนค้างรับ",
-              "displayName": "จำนวนค้างรับ"
+              "queryRef": "Sum(Stock.จำนวน)",
+              "nativeQueryRef": "จำนวน",
+              "displayName": "จำนวน"
             }
           ]
         }
@@ -66,10 +66,10 @@
                   "Column": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "Buy"
+                        "Entity": "Stock"
                       }
                     },
-                    "Property": "จำนวนค้างรับ"
+                    "Property": "จำนวน"
                   }
                 },
                 "Function": 0
@@ -82,37 +82,10 @@
       }
     },
     "objects": {
-      "labels": [
+      "ribbonBands": [
         {
           "properties": {
             "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "dataPoint": [
-        {
-          "properties": {
-            "borderShow": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -120,7 +93,9 @@
               }
             }
           }
-        },
+        }
+      ],
+      "dataPoint": [
         {
           "properties": {
             "fill": {
@@ -134,10 +109,10 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Entity": "Buy"
+                                  "Entity": "Stock"
                                 }
                               },
-                              "Property": "จำนวนค้างรับ"
+                              "Property": "จำนวน"
                             }
                           },
                           "Function": 0
@@ -191,36 +166,10 @@
             ]
           }
         }
-      ],
-      "zoom": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
       ]
     },
     "visualContainerObjects": {
       "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "border": [
         {
           "properties": {
             "show": {
@@ -245,45 +194,21 @@
             }
           }
         }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "743db4db3a60cfb37d90",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Buy"
-              }
-            },
-            "Property": "ชื่อซัพพลายเออร์"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "508f65dbc6479a4fcb88",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Buy"
-                  }
-                },
-                "Property": "จำนวนค้างรับ"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
