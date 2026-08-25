@@ -218,23 +218,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "50f876ced8e6c4a79d1d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Stock"
-              }
-            },
-            "Property": "ช่วงอายุสินค้า"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

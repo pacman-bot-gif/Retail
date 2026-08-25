@@ -125,23 +125,5 @@
       "filterChanges": true
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "c08daf5f167da4f6312c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "category"
-              }
-            },
-            "Property": "หมวดสินค้า"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

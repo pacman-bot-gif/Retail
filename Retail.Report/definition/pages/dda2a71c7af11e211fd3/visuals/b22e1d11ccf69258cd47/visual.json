@@ -251,34 +251,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "7fe0cee0eb3ddd3fbbc1",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "Stock"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "วันที่รับเข้าล่าสุด"
-                  }
-                },
-                "Hierarchy": "ลำดับชั้นวันที่"
-              }
-            },
-            "Level": "ปี"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

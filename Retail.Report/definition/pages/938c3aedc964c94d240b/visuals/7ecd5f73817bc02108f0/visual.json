@@ -226,67 +226,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "498b656863c17081a0a6",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Stock"
-              }
-            },
-            "Property": "รหัสสินค้า"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "3eb9a1a782b988c47f22",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Stock"
-              }
-            },
-            "Property": "ชื่อสินค้า"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "2d8a77ea33238389bde9",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Stock"
-              }
-            },
-            "Property": "คลัง"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "c8a600297bdda0e89d95",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Stock"
-                  }
-                },
-                "Property": "จำนวน"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

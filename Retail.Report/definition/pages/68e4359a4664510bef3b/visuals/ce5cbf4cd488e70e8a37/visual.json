@@ -4,10 +4,10 @@
   "position": {
     "x": 1078,
     "y": 834,
-    "z": 9,
+    "z": 8000,
     "height": 246,
     "width": 824,
-    "tabOrder": 9
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "pieChart",
@@ -365,42 +365,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "cd671ac19dcb7afdab5f",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Sale"
-                  }
-                },
-                "Property": "ยอดขายรวม"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "41ab5c77015b483893a0",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Sale"
-              }
-            },
-            "Property": "กลุ่มลูกค้า"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

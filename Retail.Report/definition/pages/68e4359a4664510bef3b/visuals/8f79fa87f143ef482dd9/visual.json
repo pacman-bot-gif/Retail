@@ -4,10 +4,10 @@
   "position": {
     "x": 1644,
     "y": 100,
-    "z": 4,
+    "z": 3000,
     "height": 158,
     "width": 186,
-    "tabOrder": 4
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -192,23 +192,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "daba47104aa82cf445d7",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Sale"
-              }
-            },
-            "Property": "AOV"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

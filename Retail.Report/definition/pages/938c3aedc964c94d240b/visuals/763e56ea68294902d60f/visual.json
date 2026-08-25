@@ -442,42 +442,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "aeca6ab4181b963a16f6",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Stock"
-              }
-            },
-            "Property": "สถานะสินค้า"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "6659f776b3b309c0b141",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Stock"
-                  }
-                },
-                "Property": "รหัสสินค้า"
-              }
-            },
-            "Function": 2
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

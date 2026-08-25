@@ -454,56 +454,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "921c3d00b02ab2b8a7dc",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Stock"
-              }
-            },
-            "Property": "ชื่อสินค้า"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "40c2b57124132febb44d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Stock"
-              }
-            },
-            "Property": "สถานะสินค้า"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "8d0d0525658d7bbcedf4",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Stock"
-                  }
-                },
-                "Property": "จำนวน"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

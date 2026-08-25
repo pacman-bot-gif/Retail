@@ -4,10 +4,10 @@
   "position": {
     "x": 417.84016482688151,
     "y": 96.741318950066159,
-    "z": 1,
+    "z": 0,
     "height": 158.4910970032999,
     "width": 347.85708303321661,
-    "tabOrder": 1
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "cardVisual",
@@ -188,28 +188,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "79d2063bd37b64435a5d",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Sale"
-                  }
-                },
-                "Property": "ยอดขายรวม"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

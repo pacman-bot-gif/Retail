@@ -4,10 +4,10 @@
   "position": {
     "x": 805.55555555555554,
     "y": 96.666666666666657,
-    "z": 2,
+    "z": 1000,
     "height": 158.4910970032999,
     "width": 271.69902343422837,
-    "tabOrder": 2
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -202,28 +202,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "061687c4ee1cfac5eb4c",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Sale"
-                  }
-                },
-                "Property": "จำนวน"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

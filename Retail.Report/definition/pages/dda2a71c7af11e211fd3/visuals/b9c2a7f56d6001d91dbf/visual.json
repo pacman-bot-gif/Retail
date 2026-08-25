@@ -4,10 +4,10 @@
   "position": {
     "x": 13.130699088145896,
     "y": 469.78723404255317,
-    "z": 8002,
+    "z": 10000,
     "height": 86.0790273556231,
     "width": 374.95440729483283,
-    "tabOrder": 8002
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "slicer",
@@ -145,23 +145,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "f920ee8347448a6f7269",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Stock"
-              }
-            },
-            "Property": "วันที่รับเข้าล่าสุด"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

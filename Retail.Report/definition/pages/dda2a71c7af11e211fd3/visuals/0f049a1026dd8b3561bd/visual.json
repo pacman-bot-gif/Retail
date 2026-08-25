@@ -4,10 +4,10 @@
   "position": {
     "x": 13.130699088145896,
     "y": 981.88449848024311,
-    "z": 8001,
+    "z": 9000,
     "height": 53.981762917933132,
     "width": 374.95440729483283,
-    "tabOrder": 8001
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "slicer",
@@ -218,23 +218,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "b3f748112324671fcc3a",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Stock"
-              }
-            },
-            "Property": "หมวดสินค้า"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }
