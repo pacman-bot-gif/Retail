@@ -1,0 +1,116 @@
+table LocalDateTable_ade7ac15-b37e-4746-854c-6201de9d3253
+	isHidden
+	showAsVariationsOnly
+	lineageTag: 7ebadc5b-7667-47f5-9399-5ad7a6d083e1
+
+	column Date
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: e44ba201-9011-428e-8f6e-c4b5074ae2bc
+		dataCategory: PaddedDateTableDates
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = User
+
+	column ปี = YEAR([Date])
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 886abe73-fcac-40df-b5c8-5d3bec634ac0
+		dataCategory: Years
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+		annotation TemplateId = Year
+
+	column MonthNo = MONTH([Date])
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ec4dd53b-0eb0-4553-a0ae-9376c4c5ab74
+		dataCategory: MonthOfYear
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+		annotation TemplateId = MonthNumber
+
+	column เดือน = FORMAT([Date], "MMMM")
+		dataType: string
+		isHidden
+		lineageTag: 9bf17f00-41df-46c9-b4ad-9d61abe33c96
+		dataCategory: Months
+		summarizeBy: none
+		sortByColumn: MonthNo
+
+		annotation SummarizationSetBy = User
+
+		annotation TemplateId = Month
+
+	column QuarterNo = INT(([MonthNo] + 2) / 3)
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 35bf3928-d7e3-454a-ab39-07cf0fae6da9
+		dataCategory: QuarterOfYear
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+		annotation TemplateId = QuarterNumber
+
+	column ไตรมาส = "ไตรมาส " & [QuarterNo]
+		dataType: string
+		isHidden
+		lineageTag: a9b204e1-6780-409d-84e1-44203bb20479
+		dataCategory: Quarters
+		summarizeBy: none
+		sortByColumn: QuarterNo
+
+		annotation SummarizationSetBy = User
+
+		annotation TemplateId = Quarter
+
+	column วัน = DAY([Date])
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b57a8884-78f5-40ba-a538-a9a6d9cce1e0
+		dataCategory: DayOfMonth
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+		annotation TemplateId = Day
+
+	hierarchy ลำดับชั้นวันที่
+		lineageTag: 893843e0-10b1-424c-8603-77d074906df1
+
+		level ปี
+			lineageTag: 478f33ab-e00c-4e11-ba3a-e52637c521b3
+			column: ปี
+
+		level ไตรมาส
+			lineageTag: 338d00cb-ad5f-450f-95a3-8948fa23d8b8
+			column: ไตรมาส
+
+		level เดือน
+			lineageTag: f334782f-f5bc-4c36-a0b7-8ab2c74e183c
+			column: เดือน
+
+		level วัน
+			lineageTag: 7d8ae263-8e89-4075-bd46-32256a715a70
+			column: วัน
+
+		annotation TemplateId = DateHierarchy
+
+	partition LocalDateTable_ade7ac15-b37e-4746-854c-6201de9d3253 = calculated
+		mode: import
+		source = Calendar(Date(Year(MIN('Buy'[วันที่ออก PO])), 1, 1), Date(Year(MAX('Buy'[วันที่ออก PO])), 12, 31))
+
+	annotation __PBI_LocalDateTable = true
+

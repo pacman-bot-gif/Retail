@@ -1,0 +1,112 @@
+table Sale
+	lineageTag: 2d9364d9-329e-4b30-9284-f1b4ca82fd7e
+
+	column 'Order ID'
+		dataType: string
+		lineageTag: e9faeeee-7cb3-4788-a3f0-a32b0384121c
+		summarizeBy: none
+		sourceColumn: Order ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column วันที่
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b41b501a-51e5-4ede-99bc-a6d06833888f
+		summarizeBy: none
+		sourceColumn: วันที่
+
+		variation ตัวแปร
+			isDefault
+			relationship: 689ccd96-6154-46a3-9896-48000499c01e
+			defaultHierarchy: LocalDateTable_d5d26da7-02e5-4807-93b6-8e5c99f48a98.ลำดับชั้นวันที่
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column พนักงานขาย
+		dataType: string
+		lineageTag: a456208a-8c6e-4a39-8d92-c55cc73513eb
+		summarizeBy: none
+		sourceColumn: พนักงานขาย
+
+		annotation SummarizationSetBy = Automatic
+
+	column กลุ่มลูกค้า
+		dataType: string
+		lineageTag: b7c16662-cfb7-45d4-bc5d-b542ac3f8587
+		summarizeBy: none
+		sourceColumn: กลุ่มลูกค้า
+
+		annotation SummarizationSetBy = Automatic
+
+	column หมวดสินค้า
+		dataType: string
+		lineageTag: 09a5aa1a-4070-44f6-9e9f-55e0ce18f507
+		summarizeBy: none
+		sourceColumn: หมวดสินค้า
+
+		annotation SummarizationSetBy = Automatic
+
+	column ชื่อสินค้า
+		dataType: string
+		lineageTag: 7b8718eb-b263-46f5-b676-262727f44d64
+		summarizeBy: none
+		sourceColumn: ชื่อสินค้า
+
+		annotation SummarizationSetBy = Automatic
+
+	column คลังที่ขายออก
+		dataType: string
+		lineageTag: 69ffa113-8356-43df-9faf-fd6730f12098
+		summarizeBy: none
+		sourceColumn: คลังที่ขายออก
+
+		annotation SummarizationSetBy = Automatic
+
+	column จำนวน
+		dataType: int64
+		formatString: 0
+		lineageTag: 63583bf0-a18c-470c-9e72-83661fcff3cd
+		summarizeBy: sum
+		sourceColumn: จำนวน
+
+		annotation SummarizationSetBy = Automatic
+
+	column ราคาต่อหน่วย
+		dataType: double
+		lineageTag: 2fc95da8-61b2-4821-abed-95c88424cacb
+		summarizeBy: sum
+		sourceColumn: ราคาต่อหน่วย
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ยอดขายรวม
+		dataType: double
+		lineageTag: 403f7b68-e45b-4988-915c-d7256795e5bd
+		summarizeBy: sum
+		sourceColumn: ยอดขายรวม
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Sale = m
+		mode: import
+		source =
+				let
+				  แหล่งข้อมูล = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1uJE0MRJYEU3C-6z7toEiAOKYGQGQENtd28-TatATuN0/edit?usp=sharing"),
+				  #"การนำทาง 1" = แหล่งข้อมูล{[name = "sale", ItemKind = "Table"]}[Data],
+				    ส่วนหัวที่เลื่อนระดับ = Table.PromoteHeaders(#"การนำทาง 1", [PromoteAllScalars=true]),
+				    เปลี่ยนแปลงชนิดแล้ว = Table.TransformColumnTypes(ส่วนหัวที่เลื่อนระดับ,{{"Order ID", type text}, {"วันที่", type date}, {"พนักงานขาย", type text}, {"กลุ่มลูกค้า", type text}, {"หมวดสินค้า", type text}, {"ชื่อสินค้า", type text}, {"คลังที่ขายออก", type text}, {"จำนวน", Int64.Type}, {"ราคาต่อหน่วย", type number}, {"ยอดขายรวม", type number}}),
+				    กรองแถวแล้ว = Table.SelectRows(เปลี่ยนแปลงชนิดแล้ว, each ([คลังที่ขายออก] <> "211 Akhadet-Order" and [คลังที่ขายออก] <> "311 Thanakrit-Order" and [คลังที่ขายออก] <> "315 Thanakrit-Test" and [คลังที่ขายออก] <> "321 Kritamorn-Order" and [คลังที่ขายออก] <> "325 Kritamorn-Test" and [คลังที่ขายออก] <> "331 Montree-Order" and [คลังที่ขายออก] <> "341 Archawa-Order" and [คลังที่ขายออก] <> "351 Wichan-Order" and [คลังที่ขายออก] <> "355 Wichan-Test" and [คลังที่ขายออก] <> "361 Tawatchai-Order" and [คลังที่ขายออก] <> "365 Tawatchai-Test" and [คลังที่ขายออก] <> "371 Warin-Order" and [คลังที่ขายออก] <> "375 Warin-Test" and [คลังที่ขายออก] <> "381 Kanchaithanat - Order" and [คลังที่ขายออก] <> "385 Kanchaithanat - Test" and [คลังที่ขายออก] <> "391 PICHAI-Order" and [คลังที่ขายออก] <> "395 PICHAI-Test" and [คลังที่ขายออก] <> "415 Gron-Test" and [คลังที่ขายออก] <> "421 Natphinya-Order" and [คลังที่ขายออก] <> "425 Natphinya-Test" and [คลังที่ขายออก] <> "435 Audon-Test" and [คลังที่ขายออก] <> "455 Montree - Test" and [คลังที่ขายออก] <> "471 PHATTHIYA-ORDER" and [คลังที่ขายออก] <> "511 ARNON-ORDER" and [คลังที่ขายออก] <> "515 ARNON-TEST" and [คลังที่ขายออก] <> "521 APISIT - Order" and [คลังที่ขายออก] <> "531 Nuntawat - order" and [คลังที่ขายออก] <> "541 Nuttapong - order" and [คลังที่ขายออก] <> "545 Nuttapong - Test" and [คลังที่ขายออก] <> "551 Siwaporn - order" and [คลังที่ขายออก] <> "555 Siwaporn - Test" and [คลังที่ขายออก] <> "561 Artit - order" and [คลังที่ขายออก] <> "565 Artit - Test" and [คลังที่ขายออก] <> "571 Kotchasorn - order" and [คลังที่ขายออก] <> "575 Kotchasorn - Test" and [คลังที่ขายออก] <> "581 Panya - Order" and [คลังที่ขายออก] <> "585 Panya - Test" and [คลังที่ขายออก] <> "591 Ravimol-Order" and [คลังที่ขายออก] <> "595 Ravimol-Test" and [คลังที่ขายออก] <> "611 Tapphon order" and [คลังที่ขายออก] <> "615 Tapphon Test" and [คลังที่ขายออก] <> "621 Jakkapong Order" and [คลังที่ขายออก] <> "625 Jakkapong Test" and [คลังที่ขายออก] <> "631 Narongsak Order" and [คลังที่ขายออก] <> "635-Narongsak-Test" and [คลังที่ขายออก] <> "651 NOPPARAT - Order" and [คลังที่ขายออก] <> "661 SAHAPHON-ORDER" and [คลังที่ขายออก] <> "665 SAHAPHOL - TEST"))
+				in
+				    กรองแถวแล้ว
+
+	annotation PBI_NavigationStepName = การนำทาง
+
+	annotation PBI_ResultType = Table
+

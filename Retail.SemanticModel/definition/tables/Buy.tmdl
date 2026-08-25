@@ -1,0 +1,162 @@
+table Buy
+	lineageTag: 5b8fb23c-bab1-49ff-9406-0629ac6b3c4d
+
+	column 'เลขที่ PO'
+		dataType: string
+		lineageTag: cd772752-41c1-498d-9998-ced41462af77
+		summarizeBy: none
+		sourceColumn: เลขที่ PO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'วันที่ออก PO'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b22090fa-207b-4b05-9ff3-ca85afac9d64
+		summarizeBy: none
+		sourceColumn: วันที่ออก PO
+
+		variation ตัวแปร
+			isDefault
+			relationship: 0d9b64dd-5075-4dd2-8d25-607f8b01be93
+			defaultHierarchy: LocalDateTable_ade7ac15-b37e-4746-854c-6201de9d3253.ลำดับชั้นวันที่
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column กำหนดส่งมอบ
+		dataType: string
+		lineageTag: 5663e727-0778-4ea3-bbca-f5bca05de132
+		summarizeBy: none
+		sourceColumn: กำหนดส่งมอบ
+
+		annotation SummarizationSetBy = Automatic
+
+	column ชื่อซัพพลายเออร์
+		dataType: string
+		lineageTag: b8c99d4a-4b5c-4273-9293-af02a2db7ac7
+		summarizeBy: none
+		sourceColumn: ชื่อซัพพลายเออร์
+
+		annotation SummarizationSetBy = Automatic
+
+	column หมวดสินค้า
+		dataType: string
+		lineageTag: a61e57c1-1d84-4150-9626-50d1f2269ed9
+		summarizeBy: none
+		sourceColumn: หมวดสินค้า
+
+		annotation SummarizationSetBy = Automatic
+
+	column รหัสสินค้า
+		dataType: string
+		lineageTag: 2649c429-ad95-477d-9abc-6c0e44989847
+		summarizeBy: none
+		sourceColumn: รหัสสินค้า
+
+		annotation SummarizationSetBy = Automatic
+
+	column ชื่อสินค้า
+		dataType: string
+		lineageTag: a12df6f0-d619-41c6-b0a5-ffd3bb5fc3d4
+		summarizeBy: none
+		sourceColumn: ชื่อสินค้า
+
+		annotation SummarizationSetBy = Automatic
+
+	column คลังที่รับเข้า
+		dataType: string
+		lineageTag: da334ed6-c43f-4ac9-b8e2-a0aa8e945ad3
+		summarizeBy: none
+		sourceColumn: คลังที่รับเข้า
+
+		annotation SummarizationSetBy = Automatic
+
+	column จำนวนที่สั่ง
+		dataType: int64
+		formatString: 0
+		lineageTag: 72774ec8-700e-43e8-b8df-5e61cbdccaef
+		summarizeBy: sum
+		sourceColumn: จำนวนที่สั่ง
+
+		annotation SummarizationSetBy = Automatic
+
+	column จำนวนที่รับแล้ว
+		dataType: int64
+		formatString: 0
+		lineageTag: f0b7d002-9c24-49e9-892e-6598d5264c1d
+		summarizeBy: sum
+		sourceColumn: จำนวนที่รับแล้ว
+
+		annotation SummarizationSetBy = Automatic
+
+	column จำนวนค้างรับ
+		dataType: int64
+		formatString: 0
+		lineageTag: d8661bdd-f22b-487d-b2f3-a8ce43e4d7ca
+		summarizeBy: sum
+		sourceColumn: จำนวนค้างรับ
+
+		annotation SummarizationSetBy = Automatic
+
+	column หน่วยนับ
+		dataType: string
+		lineageTag: 0dbcb9d0-200e-4f94-bf4d-ce56b30b0346
+		summarizeBy: none
+		sourceColumn: หน่วยนับ
+
+		annotation SummarizationSetBy = Automatic
+
+	column ราคาทุนต่อหน่วย
+		dataType: double
+		lineageTag: 730a3a21-de7b-4cbc-9707-810c674ee862
+		summarizeBy: sum
+		sourceColumn: ราคาทุนต่อหน่วย
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ยอดเงินรวม
+		dataType: double
+		lineageTag: eb710fc0-bb22-4e43-b88a-ca086d2a1016
+		summarizeBy: sum
+		sourceColumn: ยอดเงินรวม
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column วันที่รับของจริง
+		dataType: string
+		lineageTag: 15e4ba26-dcca-45d9-bf67-4cf9f3f1f13c
+		summarizeBy: none
+		sourceColumn: วันที่รับของจริง
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'สถานะ PO'
+		dataType: string
+		lineageTag: f55be7a6-37d3-4794-ae64-cd5b254fcfac
+		summarizeBy: none
+		sourceColumn: สถานะ PO
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Buy = m
+		mode: import
+		source =
+				let
+				  แหล่งข้อมูล = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1uJE0MRJYEU3C-6z7toEiAOKYGQGQENtd28-TatATuN0/edit?usp=sharing"),
+				  #"การนำทาง 1" = แหล่งข้อมูล{[name = "buy", ItemKind = "Table"]}[Data],
+				    ส่วนหัวที่เลื่อนระดับ = Table.PromoteHeaders(#"การนำทาง 1", [PromoteAllScalars=true]),
+				    เปลี่ยนแปลงชนิดแล้ว = Table.TransformColumnTypes(ส่วนหัวที่เลื่อนระดับ,{{"เลขที่ PO", type text}, {"วันที่ออก PO", type date}, {"กำหนดส่งมอบ", type any}, {"ชื่อซัพพลายเออร์", type text}, {"หมวดสินค้า", type text}, {"รหัสสินค้า", type any}, {"ชื่อสินค้า", type text}, {"คลังที่รับเข้า", type text}, {"จำนวนที่สั่ง", Int64.Type}, {"จำนวนที่รับแล้ว", Int64.Type}, {"จำนวนค้างรับ", Int64.Type}, {"หน่วยนับ", type text}, {"ราคาทุนต่อหน่วย", type number}, {"ยอดเงินรวม", type number}, {"วันที่รับของจริง", type any}, {"สถานะ PO", type text}}),
+				    กรองแถวแล้ว = Table.SelectRows(เปลี่ยนแปลงชนิดแล้ว, each ([คลังที่รับเข้า] <> "05 ตัวอย่างทดสอบ" and [คลังที่รับเข้า] <> "211 Akhadet-Order" and [คลังที่รับเข้า] <> "311 Thanakrit-Order" and [คลังที่รับเข้า] <> "315 Thanakrit-Test" and [คลังที่รับเข้า] <> "321 Kritamorn-Order" and [คลังที่รับเข้า] <> "325 Kritamorn-Test" and [คลังที่รับเข้า] <> "351 Wichan-Order" and [คลังที่รับเข้า] <> "361 Tawatchai-Order" and [คลังที่รับเข้า] <> "365 Tawatchai-Test" and [คลังที่รับเข้า] <> "371 Warin-Order" and [คลังที่รับเข้า] <> "381 Kanchaithanat - Order" and [คลังที่รับเข้า] <> "391 PICHAI-Order" and [คลังที่รับเข้า] <> "421 Natphinya-Order" and [คลังที่รับเข้า] <> "425 Natphinya-Test" and [คลังที่รับเข้า] <> "471 PHATTHIYA-ORDER" and [คลังที่รับเข้า] <> "511 ARNON-ORDER" and [คลังที่รับเข้า] <> "521 APISIT - Order" and [คลังที่รับเข้า] <> "541 Nuttapong - order" and [คลังที่รับเข้า] <> "545 Nuttapong - Test" and [คลังที่รับเข้า] <> "551 Siwaporn - order" and [คลังที่รับเข้า] <> "555 Siwaporn - Test" and [คลังที่รับเข้า] <> "561 Artit - order" and [คลังที่รับเข้า] <> "565 Artit - Test" and [คลังที่รับเข้า] <> "571 Kotchasorn - order" and [คลังที่รับเข้า] <> "581 Panya - Order" and [คลังที่รับเข้า] <> "585 Panya - Test" and [คลังที่รับเข้า] <> "591 Ravimol-Order" and [คลังที่รับเข้า] <> "595 Ravimol-Test" and [คลังที่รับเข้า] <> "611 Tapphon order" and [คลังที่รับเข้า] <> "615 Tapphon Test" and [คลังที่รับเข้า] <> "621 Jakkapong Order" and [คลังที่รับเข้า] <> "625 Jakkapong Test" and [คลังที่รับเข้า] <> "631 Narongsak Order" and [คลังที่รับเข้า] <> "635-Narongsak-Test" and [คลังที่รับเข้า] <> "661 SAHAPHON-ORDER" and [คลังที่รับเข้า] <> "665 SAHAPHOL - TEST"))
+				in
+				    กรองแถวแล้ว
+
+	annotation PBI_NavigationStepName = การนำทาง
+
+	annotation PBI_ResultType = Table
+

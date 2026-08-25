@@ -1,0 +1,25 @@
+model Model
+	culture: th-TH
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: th-TH
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Buy","Stock","Sale","category"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Buy
+ref table DateTableTemplate_c13bee8f-0bb9-4948-8196-c7ed14743a1f
+ref table LocalDateTable_ade7ac15-b37e-4746-854c-6201de9d3253
+ref table Stock
+ref table Sale
+ref table LocalDateTable_d5d26da7-02e5-4807-93b6-8e5c99f48a98
+ref table category
+
+ref cultureInfo th-TH
+

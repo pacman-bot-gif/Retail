@@ -1,0 +1,35 @@
+table category
+	lineageTag: cdd411a0-8070-4f23-96e0-51463c7c0eac
+
+	column เลขหมวดสินค้า
+		dataType: int64
+		formatString: 0
+		lineageTag: d3718576-c12b-4f1d-b5db-458e874df2b8
+		summarizeBy: sum
+		sourceColumn: เลขหมวดสินค้า
+
+		annotation SummarizationSetBy = Automatic
+
+	column หมวดสินค้า
+		dataType: string
+		lineageTag: 3346deb3-fe7d-4bff-a9d4-ae0a9aed1957
+		summarizeBy: none
+		sourceColumn: หมวดสินค้า
+
+		annotation SummarizationSetBy = Automatic
+
+	partition category = m
+		mode: import
+		source =
+				let
+				  แหล่งข้อมูล = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1uJE0MRJYEU3C-6z7toEiAOKYGQGQENtd28-TatATuN0/edit?usp=sharing"),
+				  #"การนำทาง 1" = แหล่งข้อมูล{[name = "category", ItemKind = "Table"]}[Data],
+				    ส่วนหัวที่เลื่อนระดับ = Table.PromoteHeaders(#"การนำทาง 1", [PromoteAllScalars=true]),
+				    เปลี่ยนแปลงชนิดแล้ว = Table.TransformColumnTypes(ส่วนหัวที่เลื่อนระดับ,{{"เลขหมวดสินค้า", Int64.Type}, {"หมวดสินค้า", type text}})
+				in
+				  เปลี่ยนแปลงชนิดแล้ว
+
+	annotation PBI_NavigationStepName = การนำทาง
+
+	annotation PBI_ResultType = Table
+

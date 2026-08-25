@@ -1,0 +1,111 @@
+table Stock
+	lineageTag: dd44e251-0d7b-440d-9842-1e95405f20a7
+
+	column รหัสสินค้า
+		dataType: string
+		lineageTag: a087ef2d-e377-4ff5-8580-a9df084a78ac
+		summarizeBy: none
+		sourceColumn: รหัสสินค้า
+
+		annotation SummarizationSetBy = Automatic
+
+	column ชื่อสินค้า
+		dataType: string
+		lineageTag: 6c785676-9f22-4369-9049-d6af0befdb94
+		summarizeBy: none
+		sourceColumn: ชื่อสินค้า
+
+		annotation SummarizationSetBy = Automatic
+
+	column หมวดสินค้า
+		dataType: string
+		lineageTag: 1f4b0d3a-7264-4818-b2d9-f33f07622114
+		summarizeBy: none
+		sourceColumn: หมวดสินค้า
+
+		annotation SummarizationSetBy = Automatic
+
+	column คลัง
+		dataType: string
+		lineageTag: 1831cdd8-674c-4813-800b-b66cb47ee5c0
+		summarizeBy: none
+		sourceColumn: คลัง
+
+		annotation SummarizationSetBy = Automatic
+
+	column จำนวน
+		dataType: int64
+		formatString: 0
+		lineageTag: 3f725907-9b8e-472e-9718-630bc7e0510e
+		summarizeBy: sum
+		sourceColumn: จำนวน
+
+		annotation SummarizationSetBy = Automatic
+
+	column ราคาต่อหน่วย
+		dataType: double
+		lineageTag: fc55bc16-ceb4-4ee3-8b44-915878c277f8
+		summarizeBy: sum
+		sourceColumn: ราคาต่อหน่วย
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ยอดขายรวม
+		dataType: double
+		lineageTag: b885415c-b830-4fb0-9d67-0b8fe3061d4f
+		summarizeBy: sum
+		sourceColumn: ยอดขายรวม
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column วันที่รับเข้าล่าสุด
+		dataType: string
+		lineageTag: 639d42c8-4d60-4e37-bbc4-94dd076eefc6
+		summarizeBy: none
+		sourceColumn: วันที่รับเข้าล่าสุด
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'อายุสต็อก (วัน)'
+		dataType: string
+		lineageTag: 8e9b8a29-020b-4176-9b54-37ae97c4d0d6
+		summarizeBy: none
+		sourceColumn: อายุสต็อก (วัน)
+
+		annotation SummarizationSetBy = Automatic
+
+	column ช่วงอายุสินค้า
+		dataType: string
+		lineageTag: 2681dc70-b516-48d4-b19a-438c0325449e
+		summarizeBy: none
+		sourceColumn: ช่วงอายุสินค้า
+
+		annotation SummarizationSetBy = Automatic
+
+	column สถานะสินค้า
+		dataType: string
+		lineageTag: accf2184-d86e-433f-bcd2-d983ec2cc4cf
+		summarizeBy: none
+		sourceColumn: สถานะสินค้า
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Stock = m
+		mode: import
+		source =
+				let
+				  แหล่งข้อมูล = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1uJE0MRJYEU3C-6z7toEiAOKYGQGQENtd28-TatATuN0/edit?usp=sharing"),
+				  #"การนำทาง 1" = แหล่งข้อมูล{[name = "Stock", ItemKind = "Table"]}[Data],
+				    ส่วนหัวที่เลื่อนระดับ = Table.PromoteHeaders(#"การนำทาง 1", [PromoteAllScalars=true]),
+				    เปลี่ยนแปลงชนิดแล้ว = Table.TransformColumnTypes(ส่วนหัวที่เลื่อนระดับ,{{"รหัสสินค้า", type any}, {"ชื่อสินค้า", type text}, {"หมวดสินค้า", type text}, {"คลัง", type text}, {"จำนวน", Int64.Type}, {"ราคาต่อหน่วย", type number}, {"ยอดขายรวม", type number}, {"วันที่รับเข้าล่าสุด", type any}, {"อายุสต็อก (วัน)", type any}, {"ช่วงอายุสินค้า", type text}, {"สถานะสินค้า", type text}})
+				in
+				    เปลี่ยนแปลงชนิดแล้ว
+
+	annotation PBI_NavigationStepName = การนำทาง
+
+	annotation PBI_ResultType = Table
+
