@@ -8,3 +8,15 @@ relationship 689ccd96-6154-46a3-9896-48000499c01e
 	fromColumn: Sale.วันที่
 	toColumn: LocalDateTable_d5d26da7-02e5-4807-93b6-8e5c99f48a98.Date
 
+relationship 5f7610f1-8774-4451-da43-704468b82e04
+	fromColumn: Stock.หมวดสินค้า
+	toColumn: category.หมวดสินค้า
+
+relationship 3963ff28-908d-eaac-f215-0f0a543dbd4d
+	fromColumn: Sale.หมวดสินค้า
+	toColumn: category.หมวดสินค้า
+
+relationship 951c11f4-a0d6-530c-2a68-3675d9ae50c1
+	fromColumn: Buy.หมวดสินค้า
+	toColumn: category.หมวดสินค้า
+

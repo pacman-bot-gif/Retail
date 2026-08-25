@@ -1,0 +1,74 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 197,
+            "y": 193
+          },
+          "nodeIndex": "Buy",
+          "nodeLineageTag": "5b8fb23c-bab1-49ff-9406-0629ac6b3c4d",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 722,
+            "y": 0
+          },
+          "nodeIndex": "category",
+          "nodeLineageTag": "cdd411a0-8070-4f23-96e0-51463c7c0eac",
+          "size": {
+            "height": 145,
+            "width": 199
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1157,
+            "y": 196
+          },
+          "nodeIndex": "Sale",
+          "nodeLineageTag": "2d9364d9-329e-4b30-9284-f1b4ca82fd7e",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 703,
+            "y": 483
+          },
+          "nodeIndex": "Stock",
+          "nodeLineageTag": "dd44e251-0d7b-440d-9842-1e95405f20a7",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

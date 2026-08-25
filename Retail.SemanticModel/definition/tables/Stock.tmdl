@@ -99,8 +99,8 @@ table Stock
 		source =
 				let
 				  แหล่งข้อมูล = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1uJE0MRJYEU3C-6z7toEiAOKYGQGQENtd28-TatATuN0/edit?usp=sharing"),
-				  #"การนำทาง 1" = แหล่งข้อมูล{[name = "Stock", ItemKind = "Table"]}[Data],
-				    ส่วนหัวที่เลื่อนระดับ = Table.PromoteHeaders(#"การนำทาง 1", [PromoteAllScalars=true]),
+				    Stock_Table = แหล่งข้อมูล{[name="Stock",ItemKind="Table"]}[Data],
+				    ส่วนหัวที่เลื่อนระดับ = Table.PromoteHeaders(Stock_Table, [PromoteAllScalars=true]),
 				    เปลี่ยนแปลงชนิดแล้ว = Table.TransformColumnTypes(ส่วนหัวที่เลื่อนระดับ,{{"รหัสสินค้า", type any}, {"ชื่อสินค้า", type text}, {"หมวดสินค้า", type text}, {"คลัง", type text}, {"จำนวน", Int64.Type}, {"ราคาต่อหน่วย", type number}, {"ยอดขายรวม", type number}, {"วันที่รับเข้าล่าสุด", type any}, {"อายุสต็อก (วัน)", type any}, {"ช่วงอายุสินค้า", type text}, {"สถานะสินค้า", type text}})
 				in
 				    เปลี่ยนแปลงชนิดแล้ว

@@ -9,7 +9,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["Buy","Stock","Sale","category"]
+annotation PBI_QueryOrder = ["Buy","Stock","Sale","category","Cat_Other"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -20,6 +20,7 @@ ref table Stock
 ref table Sale
 ref table LocalDateTable_d5d26da7-02e5-4807-93b6-8e5c99f48a98
 ref table category
+ref table Cat_Other
 
 ref cultureInfo th-TH
 

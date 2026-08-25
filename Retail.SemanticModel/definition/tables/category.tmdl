@@ -23,11 +23,13 @@ table category
 		source =
 				let
 				  แหล่งข้อมูล = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1uJE0MRJYEU3C-6z7toEiAOKYGQGQENtd28-TatATuN0/edit?usp=sharing"),
-				  #"การนำทาง 1" = แหล่งข้อมูล{[name = "category", ItemKind = "Table"]}[Data],
-				    ส่วนหัวที่เลื่อนระดับ = Table.PromoteHeaders(#"การนำทาง 1", [PromoteAllScalars=true]),
-				    เปลี่ยนแปลงชนิดแล้ว = Table.TransformColumnTypes(ส่วนหัวที่เลื่อนระดับ,{{"เลขหมวดสินค้า", Int64.Type}, {"หมวดสินค้า", type text}})
+				    category_Table = แหล่งข้อมูล{[name="category",ItemKind="Table"]}[Data],
+				  ส่วนหัวที่เลื่อนระดับ = Table.PromoteHeaders(category_Table, [PromoteAllScalars=true]),
+				    เปลี่ยนแปลงชนิดแล้ว = Table.TransformColumnTypes(ส่วนหัวที่เลื่อนระดับ,{{"เลขหมวดสินค้า", Int64.Type}, {"หมวดสินค้า", type text}}),
+				    #"Removed Duplicates" = Table.Distinct(เปลี่ยนแปลงชนิดแล้ว, {"หมวดสินค้า"}),
+				    #"Appended Query" = Table.Combine({#"Removed Duplicates", Cat_Other})
 				in
-				  เปลี่ยนแปลงชนิดแล้ว
+				  #"Appended Query"
 
 	annotation PBI_NavigationStepName = การนำทาง
 

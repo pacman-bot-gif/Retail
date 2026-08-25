@@ -149,12 +149,13 @@ table Buy
 		source =
 				let
 				  แหล่งข้อมูล = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1uJE0MRJYEU3C-6z7toEiAOKYGQGQENtd28-TatATuN0/edit?usp=sharing"),
-				  #"การนำทาง 1" = แหล่งข้อมูล{[name = "buy", ItemKind = "Table"]}[Data],
-				    ส่วนหัวที่เลื่อนระดับ = Table.PromoteHeaders(#"การนำทาง 1", [PromoteAllScalars=true]),
+				    buy_Table = แหล่งข้อมูล{[name="buy",ItemKind="Table"]}[Data],
+				    ส่วนหัวที่เลื่อนระดับ = Table.PromoteHeaders(buy_Table, [PromoteAllScalars=true]),
 				    เปลี่ยนแปลงชนิดแล้ว = Table.TransformColumnTypes(ส่วนหัวที่เลื่อนระดับ,{{"เลขที่ PO", type text}, {"วันที่ออก PO", type date}, {"กำหนดส่งมอบ", type any}, {"ชื่อซัพพลายเออร์", type text}, {"หมวดสินค้า", type text}, {"รหัสสินค้า", type any}, {"ชื่อสินค้า", type text}, {"คลังที่รับเข้า", type text}, {"จำนวนที่สั่ง", Int64.Type}, {"จำนวนที่รับแล้ว", Int64.Type}, {"จำนวนค้างรับ", Int64.Type}, {"หน่วยนับ", type text}, {"ราคาทุนต่อหน่วย", type number}, {"ยอดเงินรวม", type number}, {"วันที่รับของจริง", type any}, {"สถานะ PO", type text}}),
-				    กรองแถวแล้ว = Table.SelectRows(เปลี่ยนแปลงชนิดแล้ว, each ([คลังที่รับเข้า] <> "05 ตัวอย่างทดสอบ" and [คลังที่รับเข้า] <> "211 Akhadet-Order" and [คลังที่รับเข้า] <> "311 Thanakrit-Order" and [คลังที่รับเข้า] <> "315 Thanakrit-Test" and [คลังที่รับเข้า] <> "321 Kritamorn-Order" and [คลังที่รับเข้า] <> "325 Kritamorn-Test" and [คลังที่รับเข้า] <> "351 Wichan-Order" and [คลังที่รับเข้า] <> "361 Tawatchai-Order" and [คลังที่รับเข้า] <> "365 Tawatchai-Test" and [คลังที่รับเข้า] <> "371 Warin-Order" and [คลังที่รับเข้า] <> "381 Kanchaithanat - Order" and [คลังที่รับเข้า] <> "391 PICHAI-Order" and [คลังที่รับเข้า] <> "421 Natphinya-Order" and [คลังที่รับเข้า] <> "425 Natphinya-Test" and [คลังที่รับเข้า] <> "471 PHATTHIYA-ORDER" and [คลังที่รับเข้า] <> "511 ARNON-ORDER" and [คลังที่รับเข้า] <> "521 APISIT - Order" and [คลังที่รับเข้า] <> "541 Nuttapong - order" and [คลังที่รับเข้า] <> "545 Nuttapong - Test" and [คลังที่รับเข้า] <> "551 Siwaporn - order" and [คลังที่รับเข้า] <> "555 Siwaporn - Test" and [คลังที่รับเข้า] <> "561 Artit - order" and [คลังที่รับเข้า] <> "565 Artit - Test" and [คลังที่รับเข้า] <> "571 Kotchasorn - order" and [คลังที่รับเข้า] <> "581 Panya - Order" and [คลังที่รับเข้า] <> "585 Panya - Test" and [คลังที่รับเข้า] <> "591 Ravimol-Order" and [คลังที่รับเข้า] <> "595 Ravimol-Test" and [คลังที่รับเข้า] <> "611 Tapphon order" and [คลังที่รับเข้า] <> "615 Tapphon Test" and [คลังที่รับเข้า] <> "621 Jakkapong Order" and [คลังที่รับเข้า] <> "625 Jakkapong Test" and [คลังที่รับเข้า] <> "631 Narongsak Order" and [คลังที่รับเข้า] <> "635-Narongsak-Test" and [คลังที่รับเข้า] <> "661 SAHAPHON-ORDER" and [คลังที่รับเข้า] <> "665 SAHAPHOL - TEST"))
+				    #"Replaced Value" = Table.ReplaceValue(เปลี่ยนแปลงชนิดแล้ว,"-","ไม่ระบุคลัง",Replacer.ReplaceText,{"คลังที่รับเข้า"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","-","อื่นๆ (ไม่ระบุ)",Replacer.ReplaceText,{"หมวดสินค้า"})
 				in
-				    กรองแถวแล้ว
+				    #"Replaced Value1"
 
 	annotation PBI_NavigationStepName = การนำทาง
 
