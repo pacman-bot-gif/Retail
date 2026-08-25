@@ -1,0 +1,322 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "3aa687935bf3078830f1",
+  "position": {
+    "x": 418,
+    "y": 284,
+    "z": 5,
+    "height": 236,
+    "width": 730,
+    "tabOrder": 5
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Sale"
+                            }
+                          },
+                          "Name": "ตัวแปร",
+                          "Property": "วันที่"
+                        }
+                      },
+                      "Hierarchy": "ลำดับชั้นวันที่"
+                    }
+                  },
+                  "Level": "ปี"
+                }
+              },
+              "queryRef": "Sale.วันที่.ตัวแปร.ลำดับชั้นวันที่.ปี",
+              "nativeQueryRef": "วันที่ ปี",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Sale"
+                            }
+                          },
+                          "Name": "ตัวแปร",
+                          "Property": "วันที่"
+                        }
+                      },
+                      "Hierarchy": "ลำดับชั้นวันที่"
+                    }
+                  },
+                  "Level": "ไตรมาส"
+                }
+              },
+              "queryRef": "Sale.วันที่.ตัวแปร.ลำดับชั้นวันที่.ไตรมาส",
+              "nativeQueryRef": "วันที่ ไตรมาส",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Sale"
+                            }
+                          },
+                          "Name": "ตัวแปร",
+                          "Property": "วันที่"
+                        }
+                      },
+                      "Hierarchy": "ลำดับชั้นวันที่"
+                    }
+                  },
+                  "Level": "เดือน"
+                }
+              },
+              "queryRef": "Sale.วันที่.ตัวแปร.ลำดับชั้นวันที่.เดือน",
+              "nativeQueryRef": "วันที่ เดือน",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Sale"
+                            }
+                          },
+                          "Name": "ตัวแปร",
+                          "Property": "วันที่"
+                        }
+                      },
+                      "Hierarchy": "ลำดับชั้นวันที่"
+                    }
+                  },
+                  "Level": "วัน"
+                }
+              },
+              "queryRef": "Sale.วันที่.ตัวแปร.ลำดับชั้นวันที่.วัน",
+              "nativeQueryRef": "วันที่ วัน",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sale"
+                        }
+                      },
+                      "Property": "ยอดขายรวม"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Sale.ยอดขายรวม)",
+              "nativeQueryRef": "ค่ารวมของ ยอดขายรวม"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "lineStyles": [
+        {
+          "properties": {
+            "strokeColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4ff769f0053c1e861f48",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Sale"
+                  }
+                },
+                "Property": "ยอดขายรวม"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9858ea7b756fc66b5f84",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Sale"
+                      }
+                    },
+                    "Name": "ตัวแปร",
+                    "Property": "วันที่"
+                  }
+                },
+                "Hierarchy": "ลำดับชั้นวันที่"
+              }
+            },
+            "Level": "ปี"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c81bcf29f480827e5706",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Sale"
+                      }
+                    },
+                    "Name": "ตัวแปร",
+                    "Property": "วันที่"
+                  }
+                },
+                "Hierarchy": "ลำดับชั้นวันที่"
+              }
+            },
+            "Level": "ไตรมาส"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "166d9ca35fd9b72d2fe5",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Sale"
+                      }
+                    },
+                    "Name": "ตัวแปร",
+                    "Property": "วันที่"
+                  }
+                },
+                "Hierarchy": "ลำดับชั้นวันที่"
+              }
+            },
+            "Level": "เดือน"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "bcff02fe1fff95913fac",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Sale"
+                      }
+                    },
+                    "Name": "ตัวแปร",
+                    "Property": "วันที่"
+                  }
+                },
+                "Hierarchy": "ลำดับชั้นวันที่"
+              }
+            },
+            "Level": "วัน"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

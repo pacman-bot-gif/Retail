@@ -1,38 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "a763f9e47ebe23938ffd",
+  "name": "1e2897a612d681dec8be",
   "position": {
-    "x": 1567,
-    "y": 289,
-    "z": 8000,
-    "height": 778,
-    "width": 342,
-    "tabOrder": 8000
+    "x": 417.84016482688151,
+    "y": 96.741318950066159,
+    "z": 1,
+    "height": 158.4910970032999,
+    "width": 347.85708303321661,
+    "tabOrder": 1
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "cardVisual",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Buy"
-                    }
-                  },
-                  "Property": "คลังที่รับเข้า"
-                }
-              },
-              "queryRef": "Buy.คลังที่รับเข้า",
-              "nativeQueryRef": "คลังที่รับเข้า",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
+        "Data": {
           "projections": [
             {
               "field": {
@@ -41,17 +22,17 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Buy"
+                          "Entity": "Sale"
                         }
                       },
-                      "Property": "ยอดเงินรวม"
+                      "Property": "ยอดขายรวม"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(Buy.ยอดเงินรวม)",
-              "nativeQueryRef": "Sum of ยอดเงินรวม"
+              "queryRef": "Sum(Sale.ยอดขายรวม)",
+              "nativeQueryRef": "ค่ารวมของ ยอดขายรวม1"
             }
           ]
         }
@@ -65,10 +46,10 @@
                   "Column": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "Buy"
+                        "Entity": "Sale"
                       }
                     },
-                    "Property": "ยอดเงินรวม"
+                    "Property": "ยอดขายรวม"
                   }
                 },
                 "Function": 0
@@ -81,60 +62,7 @@
       }
     },
     "objects": {
-      "labels": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1000000D"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "zoom": [
+      "fillCustom": [
         {
           "properties": {
             "show": {
@@ -147,20 +75,20 @@
           }
         }
       ],
-      "valueAxis": [
+      "value": [
         {
           "properties": {
-            "gridlineShow": {
+            "horizontalAlignment": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "'left'"
                 }
               }
             },
-            "show": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "40D"
                 }
               }
             },
@@ -171,27 +99,61 @@
                 }
               }
             },
-            "fontSize": {
+            "bold": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "true"
                 }
               }
-            },
-            "bold": {
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "show": {
               "expr": {
                 "Literal": {
                   "Value": "false"
                 }
               }
-            },
-            "labelDisplayUnits": {
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "layout": [
+        {
+          "properties": {
+            "autoGrid": {
               "expr": {
                 "Literal": {
-                  "Value": "1000000D"
+                  "Value": "true"
                 }
               }
             }
+          }
+        }
+      ],
+      "outline": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
           }
         }
       ]
@@ -200,32 +162,20 @@
       "title": [
         {
           "properties": {
-            "show": {
+            "text": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "'ยอดขายรวมทั้งหมด'"
                 }
               }
-            }
-          }
-        }
-      ],
-      "background": [
-        {
-          "properties": {
-            "show": {
+            },
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "30D"
                 }
               }
-            }
-          }
-        }
-      ],
-      "border": [
-        {
-          "properties": {
+            },
             "show": {
               "expr": {
                 "Literal": {
@@ -238,5 +188,28 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "79d2063bd37b64435a5d",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Sale"
+                  }
+                },
+                "Property": "ยอดขายรวม"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
