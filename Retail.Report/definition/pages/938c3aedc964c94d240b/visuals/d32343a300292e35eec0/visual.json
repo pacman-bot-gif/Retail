@@ -4,10 +4,10 @@
   "position": {
     "x": 0,
     "y": 617.42331288343553,
-    "z": 1,
+    "z": 1000,
     "height": 93.25153374233129,
     "width": 395.58282208588957,
-    "tabOrder": 1
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "slicer",
@@ -120,23 +120,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "a31f71152bf5d1fc4a74",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Stock"
-              }
-            },
-            "Property": "ช่วงอายุสินค้า"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }
