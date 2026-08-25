@@ -93,7 +93,7 @@ table Buy
 
 	column จำนวนค้างรับ
 		dataType: int64
-		formatString: 0
+		formatString: #,0
 		lineageTag: d8661bdd-f22b-487d-b2f3-a8ce43e4d7ca
 		summarizeBy: sum
 		sourceColumn: จำนวนค้างรับ
@@ -153,9 +153,10 @@ table Buy
 				    ส่วนหัวที่เลื่อนระดับ = Table.PromoteHeaders(buy_Table, [PromoteAllScalars=true]),
 				    เปลี่ยนแปลงชนิดแล้ว = Table.TransformColumnTypes(ส่วนหัวที่เลื่อนระดับ,{{"เลขที่ PO", type text}, {"วันที่ออก PO", type date}, {"กำหนดส่งมอบ", type any}, {"ชื่อซัพพลายเออร์", type text}, {"หมวดสินค้า", type text}, {"รหัสสินค้า", type any}, {"ชื่อสินค้า", type text}, {"คลังที่รับเข้า", type text}, {"จำนวนที่สั่ง", Int64.Type}, {"จำนวนที่รับแล้ว", Int64.Type}, {"จำนวนค้างรับ", Int64.Type}, {"หน่วยนับ", type text}, {"ราคาทุนต่อหน่วย", type number}, {"ยอดเงินรวม", type number}, {"วันที่รับของจริง", type any}, {"สถานะ PO", type text}}),
 				    #"Replaced Value" = Table.ReplaceValue(เปลี่ยนแปลงชนิดแล้ว,"-","ไม่ระบุคลัง",Replacer.ReplaceText,{"คลังที่รับเข้า"}),
-				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","-","อื่นๆ (ไม่ระบุ)",Replacer.ReplaceText,{"หมวดสินค้า"})
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","-","อื่นๆ (ไม่ระบุ)",Replacer.ReplaceText,{"หมวดสินค้า"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","NULL","ไม่ระบุ",Replacer.ReplaceValue,{"กำหนดส่งมอบ"})
 				in
-				    #"Replaced Value1"
+				    #"Replaced Value2"
 
 	annotation PBI_NavigationStepName = การนำทาง
 

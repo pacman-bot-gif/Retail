@@ -1,0 +1,12 @@
+expression Cat_Other =
+		let
+		  Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WsrRU0lF6sGPtgx3bH+zseLBj5oOdbQoaD3a2PNixECyw+MGODQ92zHqwY4emUmwsAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [เลขหมวดสินค้า = _t, หมวดสินค้า = _t]),
+		  #"Changed column type" = Table.TransformColumnTypes(Source, {{"เลขหมวดสินค้า", Int64.Type}, {"หมวดสินค้า", type text}}, "en-US")
+		in
+		  #"Changed column type"
+	lineageTag: 2ebc3477-d221-440f-b0e2-522fe41aa7e7
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
