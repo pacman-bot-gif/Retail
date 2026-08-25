@@ -69,7 +69,8 @@
                 }
               },
               "queryRef": "Sum(Stock.จำนวน)",
-              "nativeQueryRef": "Sum of จำนวน"
+              "nativeQueryRef": "จำนวน",
+              "displayName": "จำนวน"
             }
           ]
         }
@@ -156,8 +157,9 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#E00415'"
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": 0.2
                     }
                   }
                 }
@@ -198,8 +200,8 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 4,
-                      "Percent": 0.2
+                      "ColorId": 8,
+                      "Percent": 0.4
                     }
                   }
                 }
@@ -239,8 +241,9 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#FFE500'"
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0.2
                     }
                   }
                 }
@@ -266,6 +269,47 @@
                     "Right": {
                       "Literal": {
                         "Value": "'Unknown'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#68F968'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Stock"
+                          }
+                        },
+                        "Property": "สถานะสินค้า"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Normal'"
                       }
                     }
                   }
@@ -358,7 +402,15 @@
       ],
       "title": [
         {
-          "properties": {}
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
         }
       ],
       "stylePreset": [
@@ -402,5 +454,56 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "921c3d00b02ab2b8a7dc",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Stock"
+              }
+            },
+            "Property": "ชื่อสินค้า"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "40c2b57124132febb44d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Stock"
+              }
+            },
+            "Property": "สถานะสินค้า"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8d0d0525658d7bbcedf4",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stock"
+                  }
+                },
+                "Property": "จำนวน"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

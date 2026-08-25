@@ -51,7 +51,8 @@
                 }
               },
               "queryRef": "CountNonNull(Buy.เลขที่ PO)",
-              "nativeQueryRef": "Count of เลขที่ PO"
+              "nativeQueryRef": "จำนวน",
+              "displayName": "จำนวน"
             }
           ]
         }
@@ -120,6 +121,31 @@
               }
             }
           }
+        },
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
         }
       ],
       "legend": [
@@ -129,6 +155,32 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -164,6 +216,20 @@
                   "Value": "true"
                 }
               }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
@@ -189,7 +255,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#357CE6'"
+                      "Value": "'#68F968'"
                     }
                   }
                 }
@@ -230,8 +296,8 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 4,
-                      "Percent": 0
+                      "ColorId": 8,
+                      "Percent": 0.4
                     }
                   }
                 }
@@ -271,8 +337,9 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#FF0000'"
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": 0.2
                     }
                   }
                 }

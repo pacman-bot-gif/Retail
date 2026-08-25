@@ -51,7 +51,8 @@
                 }
               },
               "queryRef": "Sum(Buy.จำนวนค้างรับ)",
-              "nativeQueryRef": "Sum of จำนวนค้างรับ"
+              "nativeQueryRef": "จำนวนค้างรับ",
+              "displayName": "จำนวนค้างรับ"
             }
           ]
         }
@@ -119,6 +120,76 @@
               }
             }
           }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "FillRule": {
+                      "Input": {
+                        "Aggregation": {
+                          "Expression": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "Buy"
+                                }
+                              },
+                              "Property": "จำนวนค้างรับ"
+                            }
+                          },
+                          "Function": 0
+                        }
+                      },
+                      "FillRule": {
+                        "linearGradient3": {
+                          "min": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#a0d1ff'"
+                              }
+                            }
+                          },
+                          "mid": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#41a4ff'"
+                              }
+                            }
+                          },
+                          "max": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#094780'"
+                              }
+                            }
+                          },
+                          "nullColoringStrategy": {
+                            "strategy": {
+                              "Literal": {
+                                "Value": "'asZero'"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
         }
       ],
       "zoom": [
@@ -177,5 +248,42 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "743db4db3a60cfb37d90",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Buy"
+              }
+            },
+            "Property": "ชื่อซัพพลายเออร์"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "508f65dbc6479a4fcb88",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Buy"
+                  }
+                },
+                "Property": "จำนวนค้างรับ"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

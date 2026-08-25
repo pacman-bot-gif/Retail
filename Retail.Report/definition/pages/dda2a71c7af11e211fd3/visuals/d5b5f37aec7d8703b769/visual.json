@@ -441,5 +441,89 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0cccc911f1c5216d02c4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Stock"
+              }
+            },
+            "Property": "ชื่อสินค้า"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "33fb8c914a508946b8c1",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stock"
+                  }
+                },
+                "Property": "จำนวน"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "da52160cdf36f33ceffe",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Stock"
+              }
+            },
+            "Property": "วันที่รับเข้าล่าสุด"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c4ca262ccb2fa37b00b9",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stock"
+                  }
+                },
+                "Property": "อายุสต็อก (วัน)"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a39d0ae0f75d40b6c649",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Stock"
+              }
+            },
+            "Property": "สถานะสต๊อก"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }
