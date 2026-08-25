@@ -1,0 +1,160 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "1b20dffb5bf6b13d6708",
+  "position": {
+    "x": 407.14285714285717,
+    "y": 710,
+    "z": 9000,
+    "height": 357.14285714285717,
+    "width": 757.14285714285722,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Buy"
+                    }
+                  },
+                  "Property": "เลขที่ PO"
+                }
+              },
+              "queryRef": "Buy.เลขที่ PO",
+              "nativeQueryRef": "เลขที่ PO"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Buy"
+                    }
+                  },
+                  "Property": "กำหนดส่งมอบ"
+                }
+              },
+              "queryRef": "Buy.กำหนดส่งมอบ",
+              "nativeQueryRef": "กำหนดส่งมอบ"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Buy"
+                    }
+                  },
+                  "Property": "ชื่อซัพพลายเออร์"
+                }
+              },
+              "queryRef": "Buy.ชื่อซัพพลายเออร์",
+              "nativeQueryRef": "ชื่อซัพพลายเออร์"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Buy"
+                    }
+                  },
+                  "Property": "ชื่อสินค้า"
+                }
+              },
+              "queryRef": "Buy.ชื่อสินค้า",
+              "nativeQueryRef": "ชื่อสินค้า"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Buy"
+                    }
+                  },
+                  "Property": "คลังที่รับเข้า"
+                }
+              },
+              "queryRef": "Buy.คลังที่รับเข้า",
+              "nativeQueryRef": "คลังที่รับเข้า"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Buy"
+                        }
+                      },
+                      "Property": "จำนวนที่สั่ง"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Buy.จำนวนที่สั่ง)",
+              "nativeQueryRef": "Sum of จำนวนที่สั่ง"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Buy"
+                        }
+                      },
+                      "Property": "จำนวนค้างรับ"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Buy.จำนวนค้างรับ)",
+              "nativeQueryRef": "Sum of จำนวนค้างรับ"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -4,10 +4,10 @@
   "position": {
     "x": 0,
     "y": 617.42331288343553,
-    "z": 1,
+    "z": 0,
     "height": 93.25153374233129,
     "width": 395.58282208588957,
-    "tabOrder": 1
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "slicer",
@@ -125,23 +125,5 @@
       "filterChanges": true
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "75934e621be81182f3c6",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "category"
-              }
-            },
-            "Property": "หมวดสินค้า"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

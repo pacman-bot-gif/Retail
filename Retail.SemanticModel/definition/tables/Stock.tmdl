@@ -1,6 +1,10 @@
 table Stock
 	lineageTag: dd44e251-0d7b-440d-9842-1e95405f20a7
 
+	measure จำนวนสินค้าทั้งหมด = DISTINCTCOUNT(Stock[รหัสสินค้า])
+		formatString: #,0
+		lineageTag: 0486afc6-2de5-4abf-902e-84403e6ca774
+
 	column รหัสสินค้า
 		dataType: string
 		lineageTag: a087ef2d-e377-4ff5-8580-a9df084a78ac
@@ -35,7 +39,7 @@ table Stock
 
 	column จำนวน
 		dataType: int64
-		formatString: 0
+		formatString: #,0
 		lineageTag: 3f725907-9b8e-472e-9718-630bc7e0510e
 		summarizeBy: sum
 		sourceColumn: จำนวน
