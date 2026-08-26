@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "2693c3168ec97e7e22af",
   "position": {
-    "x": 0,
-    "y": 866.54867256637169,
+    "x": 1.9989588755856325,
+    "y": 991.48360229047671,
     "z": 16000,
     "height": 86.0790273556231,
     "width": 374.95440729483283,
@@ -230,5 +230,23 @@
       "filterChanges": true
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "315d7c0682edd2f14e42",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Stock"
+              }
+            },
+            "Property": "วันที่รับเข้าล่าสุด"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "fa816bfef801dae096dc",
+  "name": "70cf7b1dcb7c06fbee25",
   "position": {
-    "x": 2.9984383133784487,
-    "y": 361.81155648099951,
-    "z": 19000,
-    "height": 54.915254237288138,
-    "width": 396.30508474576271,
-    "tabOrder": 19000
+    "x": 0,
+    "y": 895.53357626236334,
+    "z": 17003,
+    "height": 67.964601769911511,
+    "width": 396.79333680374805,
+    "tabOrder": 17003
   },
   "visual": {
     "visualType": "slicer",
@@ -23,14 +23,15 @@
                       "Entity": "DimDate"
                     }
                   },
-                  "Property": "ช่วงเวลา"
+                  "Property": "Year"
                 }
               },
-              "queryRef": "DimDate.ช่วงเวลา",
-              "nativeQueryRef": "ช่วงเวลา",
+              "queryRef": "DimDate.Year",
+              "nativeQueryRef": "Year",
               "active": true
             }
-          ]
+          ],
+          "showAll": true
         }
       },
       "sortDefinition": {
@@ -106,7 +107,33 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ช่วงปี'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
                 }
               }
             }
@@ -130,7 +157,7 @@
       ]
     },
     "syncGroup": {
-      "groupName": "ช่วงเวลา",
+      "groupName": "Year",
       "fieldChanges": true,
       "filterChanges": true
     },
@@ -139,7 +166,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "d508df05015e3c543f38",
+        "name": "bde9f49eab62b6200544",
         "field": {
           "Column": {
             "Expression": {
@@ -147,7 +174,7 @@
                 "Entity": "DimDate"
               }
             },
-            "Property": "ช่วงเวลา"
+            "Property": "Year"
           }
         },
         "type": "Categorical",
@@ -174,7 +201,7 @@
                                 "Source": "d"
                               }
                             },
-                            "Property": "ช่วงเวลา"
+                            "Property": "Year"
                           }
                         }
                       ],
@@ -183,13 +210,6 @@
                           {
                             "Literal": {
                               "Value": "null"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'ช่วงเวลาอื่น'"
                             }
                           }
                         ]

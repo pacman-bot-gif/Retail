@@ -31,7 +31,7 @@
           "expanded": {
             "expr": {
               "Literal": {
-                "Value": "true"
+                "Value": "false"
               }
             }
           }
@@ -55,11 +55,6 @@
       "name": "RegisteredResources",
       "type": "RegisteredResources",
       "items": [
-        {
-          "name": "19905060574156351.png",
-          "path": "19905060574156351.png",
-          "type": "Image"
-        },
         {
           "name": "208102055089076277.png",
           "path": "208102055089076277.png",

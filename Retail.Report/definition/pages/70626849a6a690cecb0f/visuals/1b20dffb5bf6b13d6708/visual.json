@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "1b20dffb5bf6b13d6708",
   "position": {
-    "x": 407.14285714285717,
-    "y": 710,
+    "x": 1175.5555555555554,
+    "y": 671.11111111111109,
     "z": 9000,
-    "height": 357.14285714285717,
-    "width": 757.14285714285722,
+    "height": 394.44444444444446,
+    "width": 744.44444444444446,
     "tabOrder": 9000
   },
   "visual": {
@@ -126,6 +126,23 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Buy"
+                  }
+                },
+                "Property": "ชื่อสินค้า"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "visualContainerObjects": {

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "066d5d179654dd3aa235",
+  "name": "3551477e37cb460b34be",
   "position": {
     "x": 0,
-    "y": 709.63040083289957,
-    "z": 13000,
-    "height": 79.9583550234253,
+    "y": 816.57470067673091,
+    "z": 17002,
+    "height": 71.962519521082768,
     "width": 396.79333680374805,
-    "tabOrder": 13000
+    "tabOrder": 17002
   },
   "visual": {
     "visualType": "slicer",
@@ -23,11 +23,11 @@
                       "Entity": "DimDate"
                     }
                   },
-                  "Property": "ช่วงเวลา"
+                  "Property": "MonthName"
                 }
               },
-              "queryRef": "DimDate.ช่วงเวลา",
-              "nativeQueryRef": "ช่วงเวลา",
+              "queryRef": "DimDate.MonthName",
+              "nativeQueryRef": "MonthName",
               "active": true
             }
           ]
@@ -110,6 +110,20 @@
                 }
               }
             },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ช่วงเดือน'"
+                }
+              }
+            },
             "fontColor": {
               "solid": {
                 "color": {
@@ -119,20 +133,6 @@
                       "Percent": 0
                     }
                   }
-                }
-              }
-            },
-            "textSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "15D"
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
                 }
               }
             }
@@ -156,7 +156,7 @@
       ]
     },
     "syncGroup": {
-      "groupName": "ช่วงเวลา",
+      "groupName": "MonthName",
       "fieldChanges": true,
       "filterChanges": true
     },
@@ -227,6 +227,7 @@
             }
           ]
         },
+        "howCreated": "User",
         "objects": {
           "general": [
             {
@@ -242,6 +243,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "859c4d51c6a24cb4f217",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDate"
+              }
+            },
+            "Property": "MonthName"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }
