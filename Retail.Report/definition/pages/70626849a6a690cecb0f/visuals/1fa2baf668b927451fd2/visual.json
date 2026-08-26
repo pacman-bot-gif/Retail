@@ -3,10 +3,10 @@
   "name": "1fa2baf668b927451fd2",
   "position": {
     "x": 0,
-    "y": 492.760736196319,
+    "y": 492.74336283185841,
     "z": 1000,
-    "height": 93.25153374233129,
-    "width": 395.58282208588957,
+    "height": 46.975533576262364,
+    "width": 395.79385736595526,
     "tabOrder": 1000
   },
   "visual": {
@@ -127,5 +127,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "66d464911760e0d72f1e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Buy"
+              }
+            },
+            "Property": "คลังที่รับเข้า"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

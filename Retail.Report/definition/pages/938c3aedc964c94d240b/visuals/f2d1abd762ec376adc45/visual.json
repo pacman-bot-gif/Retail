@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "f2d1abd762ec376adc45",
   "position": {
-    "x": 0,
-    "y": 681.64497657470065,
+    "x": 1.9989588755856325,
+    "y": 806.57990629880567,
     "z": 15000,
     "height": 71.962519521082768,
     "width": 396.79333680374805,
@@ -243,6 +243,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "7b4ef817439b2c21e6bd",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDate"
+              }
+            },
+            "Property": "MonthName"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }
