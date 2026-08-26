@@ -20,7 +20,6 @@ ref table Stock
 ref table Sale
 ref table LocalDateTable_d5d26da7-02e5-4807-93b6-8e5c99f48a98
 ref table category
-ref table LocalDateTable_713b673c-f150-48a3-bc78-1b90dd7421fc
 
 ref cultureInfo th-TH
 

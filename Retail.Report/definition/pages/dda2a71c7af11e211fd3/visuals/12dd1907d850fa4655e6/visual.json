@@ -17,24 +17,13 @@
           "projections": [
             {
               "field": {
-                "HierarchyLevel": {
+                "Column": {
                   "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "Stock"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "วันที่รับเข้าล่าสุด"
-                        }
-                      },
-                      "Hierarchy": "ลำดับชั้นวันที่"
+                    "SourceRef": {
+                      "Entity": "Stock"
                     }
                   },
-                  "Level": "เดือน"
+                  "Property": "วันที่รับเข้าล่าสุด"
                 }
               },
               "queryRef": "Stock.วันที่รับเข้าล่าสุด.Variation.ลำดับชั้นวันที่.เดือน",

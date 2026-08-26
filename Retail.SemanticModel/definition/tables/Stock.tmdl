@@ -74,26 +74,18 @@ table Stock
 		annotation PBI_FormatHint = {"isDecimal":true}
 
 	column วันที่รับเข้าล่าสุด
-		dataType: dateTime
-		formatString: Short Date
+		dataType: string
 		lineageTag: 639d42c8-4d60-4e37-bbc4-94dd076eefc6
 		summarizeBy: none
 		sourceColumn: วันที่รับเข้าล่าสุด
 
-		variation Variation
-			isDefault
-			relationship: b02f6816-99c5-4f5d-b69f-2ccba9066353
-			defaultHierarchy: LocalDateTable_713b673c-f150-48a3-bc78-1b90dd7421fc.ลำดับชั้นวันที่
-
 		annotation SummarizationSetBy = Automatic
 
-		annotation UnderlyingDateTimeDataType = Date
-
-	column 'อายุสต็อก (วัน)1'
+	column 'อายุสต็อก (วัน)'
 		dataType: string
 		lineageTag: 8e9b8a29-020b-4176-9b54-37ae97c4d0d6
 		summarizeBy: none
-		sourceColumn: อายุสต็อก (วัน)1
+		sourceColumn: อายุสต็อก (วัน)
 
 		annotation SummarizationSetBy = Automatic
 
@@ -155,7 +147,7 @@ table Stock
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'อายุสต็อก (วัน)' = DATEDIFF('Stock'[วันที่รับเข้าล่าสุด], TODAY(), DAY)
+	column 'อายุสต็อก (วัน)2' = DATEDIFF('Stock'[วันที่รับเข้าล่าสุด], TODAY(), DAY)
 		formatString: 0
 		lineageTag: 06d08d43-b4ad-448d-b03c-c3617431e371
 		summarizeBy: sum
@@ -170,11 +162,9 @@ table Stock
 				    Stock_Table = แหล่งข้อมูล{[name="Stock",ItemKind="Table"]}[Data],
 				    ส่วนหัวที่เลื่อนระดับ = Table.PromoteHeaders(Stock_Table, [PromoteAllScalars=true]),
 				    เปลี่ยนแปลงชนิดแล้ว = Table.TransformColumnTypes(ส่วนหัวที่เลื่อนระดับ,{{"รหัสสินค้า", type text}, {"ชื่อสินค้า", type text}, {"คลัง", type text}}),
-				    กรองแถวแล้ว = Table.SelectRows(เปลี่ยนแปลงชนิดแล้ว, each ([คลัง] <> "05 ตัวอย่างทดสอบ" and [คลัง] <> "311 Thanakrit-Order" and [คลัง] <> "321 Kritamorn-Order" and [คลัง] <> "325 Kritamorn-Test" and [คลัง] <> "361 Tawatchai-Order" and [คลัง] <> "365 Tawatchai-Test" and [คลัง] <> "371 Warin-Order" and [คลัง] <> "381 Kanchaithanat - Order" and [คลัง] <> "391 PICHAI-Order" and [คลัง] <> "395 PICHAI-Test" and [คลัง] <> "421 Natphinya-Order" and [คลัง] <> "435 Audon-Test" and [คลัง] <> "471 PHATTHIYA-ORDER" and [คลัง] <> "475 PHATTHIYA-TEST" and [คลัง] <> "511 ARNON-ORDER" and [คลัง] <> "515 ARNON-TEST" and [คลัง] <> "541 Nuttapong - order" and [คลัง] <> "551 Siwaporn - order" and [คลัง] <> "561 Artit - order" and [คลัง] <> "565 Artit - Test" and [คลัง] <> "571 Kotchasorn - order" and [คลัง] <> "575 Kotchasorn - Test" and [คลัง] <> "581 Panya - Order" and [คลัง] <> "585 Panya - Test" and [คลัง] <> "591 Ravimol-Order" and [คลัง] <> "595 Ravimol-Test" and [คลัง] <> "611 Tapphon order" and [คลัง] <> "615 Tapphon Test" and [คลัง] <> "621 Jakkapong Order" and [คลัง] <> "631 Narongsak Order" and [คลัง] <> "635-Narongsak-Test" and [คลัง] <> "661 SAHAPHON-ORDER" and [คลัง] <> "665 SAHAPHOL - TEST")),
-				    #"Changed Type" = Table.TransformColumnTypes(กรองแถวแล้ว,{{"วันที่รับเข้าล่าสุด", type date}}),
-				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"อายุสต็อก (วัน)", "อายุสต็อก (วัน)1"}})
+				    กรองแถวแล้ว = Table.SelectRows(เปลี่ยนแปลงชนิดแล้ว, each ([คลัง] <> "05 ตัวอย่างทดสอบ" and [คลัง] <> "311 Thanakrit-Order" and [คลัง] <> "321 Kritamorn-Order" and [คลัง] <> "325 Kritamorn-Test" and [คลัง] <> "361 Tawatchai-Order" and [คลัง] <> "365 Tawatchai-Test" and [คลัง] <> "371 Warin-Order" and [คลัง] <> "381 Kanchaithanat - Order" and [คลัง] <> "391 PICHAI-Order" and [คลัง] <> "395 PICHAI-Test" and [คลัง] <> "421 Natphinya-Order" and [คลัง] <> "435 Audon-Test" and [คลัง] <> "471 PHATTHIYA-ORDER" and [คลัง] <> "475 PHATTHIYA-TEST" and [คลัง] <> "511 ARNON-ORDER" and [คลัง] <> "515 ARNON-TEST" and [คลัง] <> "541 Nuttapong - order" and [คลัง] <> "551 Siwaporn - order" and [คลัง] <> "561 Artit - order" and [คลัง] <> "565 Artit - Test" and [คลัง] <> "571 Kotchasorn - order" and [คลัง] <> "575 Kotchasorn - Test" and [คลัง] <> "581 Panya - Order" and [คลัง] <> "585 Panya - Test" and [คลัง] <> "591 Ravimol-Order" and [คลัง] <> "595 Ravimol-Test" and [คลัง] <> "611 Tapphon order" and [คลัง] <> "615 Tapphon Test" and [คลัง] <> "621 Jakkapong Order" and [คลัง] <> "631 Narongsak Order" and [คลัง] <> "635-Narongsak-Test" and [คลัง] <> "661 SAHAPHON-ORDER" and [คลัง] <> "665 SAHAPHOL - TEST"))
 				in
-				    #"Renamed Columns"
+				    กรองแถวแล้ว
 
 	annotation PBI_NavigationStepName = การนำทาง
 

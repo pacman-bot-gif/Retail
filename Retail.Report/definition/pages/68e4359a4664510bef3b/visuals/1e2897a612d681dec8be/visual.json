@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "1e2897a612d681dec8be",
   "position": {
-    "x": 417.84016482688151,
-    "y": 96.741318950066159,
+    "x": 391.0344827586207,
+    "y": 95.763546798029552,
     "z": 0,
     "height": 158.4910970032999,
     "width": 347.85708303321661,
@@ -109,6 +109,27 @@
           },
           "selector": {
             "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Sale.ยอดขายรวม)"
           }
         }
       ],

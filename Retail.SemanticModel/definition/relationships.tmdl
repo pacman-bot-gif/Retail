@@ -20,8 +20,3 @@ relationship 951c11f4-a0d6-530c-2a68-3675d9ae50c1
 	fromColumn: Buy.หมวดสินค้า
 	toColumn: category.หมวดสินค้า
 
-relationship b02f6816-99c5-4f5d-b69f-2ccba9066353
-	joinOnDateBehavior: datePartOnly
-	fromColumn: Stock.วันที่รับเข้าล่าสุด
-	toColumn: LocalDateTable_713b673c-f150-48a3-bc78-1b90dd7421fc.Date
-
