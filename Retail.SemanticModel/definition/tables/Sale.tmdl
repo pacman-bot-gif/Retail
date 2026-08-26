@@ -26,11 +26,6 @@ table Sale
 		summarizeBy: none
 		sourceColumn: วันที่
 
-		variation ตัวแปร
-			isDefault
-			relationship: 689ccd96-6154-46a3-9896-48000499c01e
-			defaultHierarchy: LocalDateTable_d5d26da7-02e5-4807-93b6-8e5c99f48a98.ลำดับชั้นวันที่
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date

@@ -17,106 +17,17 @@
           "projections": [
             {
               "field": {
-                "HierarchyLevel": {
+                "Column": {
                   "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "Sale"
-                            }
-                          },
-                          "Name": "ตัวแปร",
-                          "Property": "วันที่"
-                        }
-                      },
-                      "Hierarchy": "ลำดับชั้นวันที่"
+                    "SourceRef": {
+                      "Entity": "Sale"
                     }
                   },
-                  "Level": "ปี"
+                  "Property": "วันที่"
                 }
               },
               "queryRef": "Sale.วันที่.ตัวแปร.ลำดับชั้นวันที่.ปี",
               "nativeQueryRef": "วันที่ ปี",
-              "active": true
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "Sale"
-                            }
-                          },
-                          "Name": "ตัวแปร",
-                          "Property": "วันที่"
-                        }
-                      },
-                      "Hierarchy": "ลำดับชั้นวันที่"
-                    }
-                  },
-                  "Level": "ไตรมาส"
-                }
-              },
-              "queryRef": "Sale.วันที่.ตัวแปร.ลำดับชั้นวันที่.ไตรมาส",
-              "nativeQueryRef": "วันที่ ไตรมาส",
-              "active": true
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "Sale"
-                            }
-                          },
-                          "Name": "ตัวแปร",
-                          "Property": "วันที่"
-                        }
-                      },
-                      "Hierarchy": "ลำดับชั้นวันที่"
-                    }
-                  },
-                  "Level": "เดือน"
-                }
-              },
-              "queryRef": "Sale.วันที่.ตัวแปร.ลำดับชั้นวันที่.เดือน",
-              "nativeQueryRef": "วันที่ เดือน",
-              "active": true
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "Sale"
-                            }
-                          },
-                          "Name": "ตัวแปร",
-                          "Property": "วันที่"
-                        }
-                      },
-                      "Hierarchy": "ลำดับชั้นวันที่"
-                    }
-                  },
-                  "Level": "วัน"
-                }
-              },
-              "queryRef": "Sale.วันที่.ตัวแปร.ลำดับชั้นวันที่.วัน",
-              "nativeQueryRef": "วันที่ วัน",
               "active": true
             }
           ]

@@ -14,12 +14,12 @@ annotation PBI_QueryOrder = ["Buy","Stock","Sale","category","Cat_Other"]
 annotation PBI_ProTooling = ["DevMode"]
 
 ref table Buy
-ref table DateTableTemplate_c13bee8f-0bb9-4948-8196-c7ed14743a1f
-ref table LocalDateTable_ade7ac15-b37e-4746-854c-6201de9d3253
 ref table Stock
 ref table Sale
-ref table LocalDateTable_d5d26da7-02e5-4807-93b6-8e5c99f48a98
 ref table category
+ref table DimDate
+ref table DateTableTemplate_8dc930fe-b09f-4d36-a132-6d61647c74b5
+ref table LocalDateTable_b13f9bdb-7592-4e05-888d-4eedb7960f48
 
 ref cultureInfo th-TH
 
