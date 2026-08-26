@@ -1,0 +1,97 @@
+table DimDate
+	lineageTag: f6bfcf32-336e-4523-bf4d-2e34e7c8cd9b
+
+	column Date
+		formatString: General Date
+		lineageTag: 0095f69b-d5f9-47e9-ac16-35b640baeb1e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 09d7dc55-06d8-429c-858d-83e914b0f279
+			defaultHierarchy: LocalDateTable_b13f9bdb-7592-4e05-888d-4eedb7960f48.ลำดับชั้นวันที่
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		formatString: 0
+		lineageTag: faef6420-0c96-43f5-9e5a-d8df73c9aee8
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNo
+		formatString: 0
+		lineageTag: 7f6b862a-c5d7-4edf-8ee3-dd5f2bc0faf0
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [MonthNo]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		lineageTag: adf2bc38-f1bc-4b82-b8c0-c540c4717451
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MonthName]
+		sortByColumn: MonthNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		lineageTag: a97c1434-d2fc-4b93-8121-935273cb9d39
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [YearMonth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ช่วงเวลา
+		lineageTag: 307fbd47-e4d1-4c8c-9877-194ce3cc7012
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ช่วงเวลา]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDate = calculated
+		mode: import
+		source = ```
+				
+				VAR StartDate = DATE(2023, 1, 1)
+				VAR EndDate = DATE(2026, 12, 31)
+				VAR BaseCalendar = CALENDAR(StartDate, EndDate)
+				VAR TodayDate = TODAY()
+				VAR CurrentYear = YEAR(TodayDate)
+				VAR CurrentMonth = MONTH(TodayDate)
+				
+				// ปีงบประมาณไทยปัจจุบัน (1 ต.ค. - 30 ก.ย.)
+				VAR FYStart = IF(CurrentMonth >= 10, DATE(CurrentYear, 10, 1), DATE(CurrentYear - 1, 10, 1))
+				VAR FYEnd = IF(CurrentMonth >= 10, DATE(CurrentYear + 1, 9, 30), DATE(CurrentYear, 9, 30))
+				
+				RETURN
+				ADDCOLUMNS(
+				    BaseCalendar,
+				    "Year", YEAR([Date]),
+				    "MonthNo", MONTH([Date]),
+				    "MonthName", FORMAT([Date], "mmmm"),
+				    "YearMonth", FORMAT([Date], "yyyy-mm"),
+				    "ช่วงเวลา", 
+				        SWITCH(
+				            TRUE(),
+				            YEAR([Date]) = CurrentYear && MONTH([Date]) = CurrentMonth, "เดือนปัจจุบัน",
+				            YEAR([Date]) = YEAR(EDATE(TodayDate, -1)) && MONTH([Date]) = MONTH(EDATE(TodayDate, -1)), "เดือนก่อน",
+				            [Date] >= FYStart && [Date] <= FYEnd && YEAR([Date]) <> CurrentYear, "ปีงบประมาณ",
+				            YEAR([Date]) = CurrentYear, "ปีปัจจุบัน",
+				            YEAR([Date]) = CurrentYear - 1, "ปีก่อน",
+				            "ช่วงเวลาอื่น"
+				        )
+				)
+				```
+
+	annotation PBI_Id = c22fd204edc744a0bd8136260c499a4f
+

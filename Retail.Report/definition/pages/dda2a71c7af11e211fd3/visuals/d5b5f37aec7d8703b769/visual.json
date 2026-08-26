@@ -110,10 +110,10 @@
                     "Entity": "Stock"
                   }
                 },
-                "Property": "สถานะสต๊อก"
+                "Property": "ชื่อสินค้า"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }

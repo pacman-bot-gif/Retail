@@ -10,8 +10,8 @@
       "nodes": [
         {
           "location": {
-            "x": 197,
-            "y": 193
+            "x": 0,
+            "y": 253
           },
           "nodeIndex": "Buy",
           "nodeLineageTag": "5b8fb23c-bab1-49ff-9406-0629ac6b3c4d",
@@ -23,7 +23,7 @@
         },
         {
           "location": {
-            "x": 722,
+            "x": 421,
             "y": 0
           },
           "nodeIndex": "category",
@@ -36,8 +36,8 @@
         },
         {
           "location": {
-            "x": 1157,
-            "y": 196
+            "x": 1482,
+            "y": 83
           },
           "nodeIndex": "Sale",
           "nodeLineageTag": "2d9364d9-329e-4b30-9284-f1b4ca82fd7e",
@@ -49,8 +49,8 @@
         },
         {
           "location": {
-            "x": 703,
-            "y": 483
+            "x": 869,
+            "y": 732
           },
           "nodeIndex": "Stock",
           "nodeLineageTag": "dd44e251-0d7b-440d-9842-1e95405f20a7",
@@ -59,6 +59,19 @@
             "width": 234
           },
           "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 882,
+            "y": 281.5
+          },
+          "nodeIndex": "DimDate",
+          "nodeLineageTag": "f6bfcf32-336e-4523-bf4d-2e34e7c8cd9b",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 5
         }
       ],
       "name": "All tables",

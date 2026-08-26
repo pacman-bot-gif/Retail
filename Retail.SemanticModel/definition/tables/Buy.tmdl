@@ -16,11 +16,6 @@ table Buy
 		summarizeBy: none
 		sourceColumn: วันที่ออก PO
 
-		variation ตัวแปร
-			isDefault
-			relationship: 0d9b64dd-5075-4dd2-8d25-607f8b01be93
-			defaultHierarchy: LocalDateTable_ade7ac15-b37e-4746-854c-6201de9d3253.ลำดับชั้นวันที่
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -141,6 +136,38 @@ table Buy
 		lineageTag: f55be7a6-37d3-4794-ae64-cd5b254fcfac
 		summarizeBy: none
 		sourceColumn: สถานะ PO
+
+		annotation SummarizationSetBy = Automatic
+
+	column Period_Group = ```
+			
+			VAR DocDate = Buy[วันที่ออก PO]
+			VAR TodayDate = TODAY()
+			RETURN
+			IF(
+			    ISBLANK(DocDate), 
+			    "ไม่ระบุ",
+			    IF(
+			        YEAR(DocDate) = YEAR(TodayDate) && MONTH(DocDate) = MONTH(TodayDate), 
+			        "เดือนปัจจุบัน",
+			        IF(
+			            YEAR(DocDate) = YEAR(EDATE(TodayDate, -1)) && MONTH(DocDate) = MONTH(EDATE(TodayDate, -1)), 
+			            "เดือนก่อน",
+			            IF(
+			                YEAR(DocDate) = YEAR(TodayDate), 
+			                "ปีปัจจุบัน",
+			                IF(
+			                    YEAR(DocDate) = YEAR(TodayDate) - 1, 
+			                    "ปีก่อน", 
+			                    "อื่นๆ"
+			                )
+			            )
+			        )
+			    )
+			)
+			```
+		lineageTag: 9ed05f7d-cfb4-472c-abf9-67be5fe650e2
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
