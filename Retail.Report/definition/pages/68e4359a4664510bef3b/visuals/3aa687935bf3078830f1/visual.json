@@ -65,7 +65,7 @@
               },
               "queryRef": "Sale.วันที่.ตัวแปร.ลำดับชั้นวันที่.ไตรมาส",
               "nativeQueryRef": "วันที่ ไตรมาส",
-              "active": true
+              "active": false
             },
             {
               "field": {
@@ -91,33 +91,7 @@
               },
               "queryRef": "Sale.วันที่.ตัวแปร.ลำดับชั้นวันที่.เดือน",
               "nativeQueryRef": "วันที่ เดือน",
-              "active": true
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "Sale"
-                            }
-                          },
-                          "Name": "ตัวแปร",
-                          "Property": "วันที่"
-                        }
-                      },
-                      "Hierarchy": "ลำดับชั้นวันที่"
-                    }
-                  },
-                  "Level": "วัน"
-                }
-              },
-              "queryRef": "Sale.วันที่.ตัวแปร.ลำดับชั้นวันที่.วัน",
-              "nativeQueryRef": "วันที่ วัน",
-              "active": true
+              "active": false
             }
           ]
         },
